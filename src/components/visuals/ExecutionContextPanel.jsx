@@ -1,6 +1,11 @@
 import { motion } from "framer-motion";
 import { Panel } from "../Panel";
 
+const EXECUTION_CONTEXT_INFO = {
+  title: "Scope & Context",
+  description: "Represents the lexical environment where variables are defined. Includes scope chain (local → parent → global), variable bindings, and context type (function, block, or global). JavaScript uses scope chain to resolve variable lookups through nested scopes.",
+};
+
 export function ExecutionContextPanel({ contexts, icon, active }) {
   return (
     <Panel
@@ -8,6 +13,7 @@ export function ExecutionContextPanel({ contexts, icon, active }) {
       accent="border-app-active"
       active={active}
       action={<span className="text-app-active">{icon}</span>}
+      info={EXECUTION_CONTEXT_INFO}
     >
       <div className="max-h-[150px] min-h-[96px] space-y-2 overflow-auto pr-1 scrollbar-thin">
         {contexts.map((context) => (

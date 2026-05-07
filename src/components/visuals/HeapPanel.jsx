@@ -2,6 +2,11 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Panel } from "../Panel";
 import { EmptyState } from "./EmptyState";
 
+const HEAP_INFO = {
+  title: "Memory (Heap)",
+  description: "Stores objects, arrays, and complex data types allocated at runtime. Unlike primitive values stored on the stack, heap objects persist until no references point to them (garbage collected). Memory addresses/IDs track object references in code.",
+};
+
 export function HeapPanel({ nodes, icon, active }) {
   return (
     <Panel
@@ -9,6 +14,7 @@ export function HeapPanel({ nodes, icon, active }) {
       accent="border-app-heap"
       active={active}
       action={<span className="text-app-heap">{icon}</span>}
+      info={HEAP_INFO}
     >
       <div className="grid max-h-[150px] min-h-[96px] grid-cols-1 gap-2 overflow-auto pr-1 scrollbar-thin sm:grid-cols-2">
         <AnimatePresence initial={false}>

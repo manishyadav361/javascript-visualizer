@@ -2,6 +2,11 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Panel } from "../Panel";
 import { EmptyState } from "./EmptyState";
 
+const WEB_APIS_INFO = {
+  title: "Web APIs",
+  description: "Browser APIs like setTimeout, fetch, event listeners, etc. When called, they're delegated to the browser and execute asynchronously. Callbacks return to queues when the operation completes. Important for understanding async patterns in JavaScript.",
+};
+
 export function WebApisPanel({ apis, icon, active }) {
   const registeredApis = apis.filter((api) => api.status === "waiting");
 
@@ -12,6 +17,7 @@ export function WebApisPanel({ apis, icon, active }) {
       active={active}
       className="h-full min-h-[240px]"
       action={<span className="text-app-macro">{icon}</span>}
+      info={WEB_APIS_INFO}
     >
       <div className="flex h-full min-h-0 flex-col gap-3 overflow-auto pr-1 scrollbar-thin">
         <AnimatePresence initial={false}>

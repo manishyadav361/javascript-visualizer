@@ -1,7 +1,15 @@
 import { AnimatePresence, motion } from "framer-motion";
+import { InfoIcon } from "../InfoIcon";
 import { EmptyState } from "./EmptyState";
 
+const QUEUE_DESCRIPTIONS = {
+  "Microtask Queue": "Executes Promises, async/await, and queueMicrotask callbacks. These have higher priority and run before macrotasks. Important for understanding asynchronous code flow.",
+  "Macrotask Queue": "Contains setTimeout, setInterval, setImmediate, I/O operations. Lower priority than microtasks. The event loop alternates: one macrotask, then all pending microtasks.",
+};
+
 export function QueuePanel({ title, accent, color, items, icon, active, compact = false }) {
+  const infoDescription = QUEUE_DESCRIPTIONS[title];
+  
   return (
     <section
       className={`min-h-0 rounded-md border bg-app-bg/45 p-3 transition ${
@@ -9,7 +17,10 @@ export function QueuePanel({ title, accent, color, items, icon, active, compact 
       }`}
     >
       <div className={`mb-2 flex h-6 items-center justify-between border-b ${accent} pb-2`}>
-        <h3 className="truncate text-xs font-semibold uppercase tracking-[0.14em] text-app-muted">{title}</h3>
+        <div className="flex items-center gap-2">
+          <h3 className="truncate text-xs font-semibold uppercase tracking-[0.14em] text-app-muted">{title}</h3>
+          {infoDescription && <InfoIcon title={title} description={infoDescription} />}
+        </div>
         <span className={color}>{icon}</span>
       </div>
       <div className={`flex flex-col gap-3 overflow-auto pr-1 scrollbar-thin ${compact ? "max-h-[216px]" : "min-h-[160px]"}`}>

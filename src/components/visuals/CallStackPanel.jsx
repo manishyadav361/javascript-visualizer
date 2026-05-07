@@ -2,6 +2,11 @@ import { AnimatePresence, motion } from "framer-motion";
 import { Panel } from "../Panel";
 import { EmptyState } from "./EmptyState";
 
+const CALL_STACK_INFO = {
+  title: "Call Stack",
+  description: "Tracks function calls as they execute. When a function is called, it's pushed onto the stack. When it returns, it's popped off. The topmost frame is the currently executing function. LIFO (Last In, First Out) data structure.",
+};
+
 export function CallStackPanel({ frames, icon, active }) {
   return (
     <Panel
@@ -9,6 +14,7 @@ export function CallStackPanel({ frames, icon, active }) {
       accent="border-app-stack"
       active={active}
       action={<span className="text-app-stack">{icon}</span>}
+      info={CALL_STACK_INFO}
     >
       <div className="flex h-full min-h-[112px] flex-col-reverse gap-2 overflow-auto pr-1 scrollbar-thin">
         <AnimatePresence initial={false}>

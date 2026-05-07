@@ -1,4 +1,11 @@
 import { motion } from "framer-motion";
+import { InfoIcon } from "../InfoIcon";
+
+const EVENT_LOOP_INFO = {
+  title: "Event Loop",
+  description: "Continuously checks if the call stack is empty. If empty, it processes pending callbacks from queues in order: microtasks first, then macrotasks. Essential for understanding asynchronous JavaScript execution, promises, and setTimeout behavior.",
+};
+
 export function EventLoopPanel({ phase, activeTask, callStackSize, icon, active }) {
   const isDraining = phase === "microtask" || phase === "macrotask";
 
@@ -9,7 +16,10 @@ export function EventLoopPanel({ phase, activeTask, callStackSize, icon, active 
       }`}
     >
       <div className="mb-2 flex h-6 items-center justify-between">
-        <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-app-muted">Event Loop</h3>
+        <div className="flex items-center gap-2">
+          <h3 className="text-xs font-semibold uppercase tracking-[0.14em] text-app-muted">Event Loop</h3>
+          <InfoIcon title={EVENT_LOOP_INFO.title} description={EVENT_LOOP_INFO.description} />
+        </div>
         <span className="text-app-active">{icon}</span>
       </div>
       <div className="grid min-h-[210px] place-items-center">

@@ -1,0 +1,245 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  --app-bg: 243 246 250;
+  --app-panel: 255 255 255;
+  --app-panelSoft: 238 243 248;
+  --app-border: 217 225 234;
+  --app-muted: 100 116 139;
+  --app-text: 30 41 59;
+  --app-strong: 15 23 42;
+  --app-stack: 37 99 235;
+  --app-heap: 124 58 237;
+  --app-micro: 5 150 105;
+  --app-macro: 217 119 6;
+  --app-active: 227 179 65;
+  --app-code: 248 250 252;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+html.dark {
+  color-scheme: dark;
+}
+
+html.dark {
+  --app-bg: 15 23 42;
+  --app-panel: 17 24 39;
+  --app-panelSoft: 30 41 59;
+  --app-border: 63 71 88;
+  --app-muted: 148 163 184;
+  --app-text: 226 232 240;
+  --app-strong: 241 245 249;
+  --app-stack: 96 165 250;
+  --app-heap: 192 132 252;
+  --app-micro: 52 211 153;
+  --app-macro: 251 191 36;
+  --app-active: 248 189 66;
+  --app-code: 15 23 42;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.5;
+  background:
+    radial-gradient(circle at 18% 0%, rgb(96 165 250 / 0.10), transparent 30%),
+    linear-gradient(135deg, #0b1120 0%, #111827 52%, #0f172a 100%);
+  color: rgb(var(--app-text));
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+.executed-line {
+  background: rgb(5 150 105 / 0.1);
+  border-left: 2px solid #059669;
+}
+
+.current-line {
+  background: rgb(183 121 31 / 0.16);
+  border-left: 2px solid #b7791f;
+}
+
+.line-marker {
+  color: #b7791f;
+}
+
+.scrollbar-thin {
+  scrollbar-color: #cbd5e1 transparent;
+  scrollbar-width: thin;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 999px;
+}
+
+html.dark .bg-app-bg {
+  background-color: rgb(var(--app-bg));
+}
+
+html.dark .bg-app-panel {
+  background-color: rgb(var(--app-panel));
+}
+
+html.dark .bg-app-panelSoft {
+  background-color: rgb(var(--app-panelSoft));
+}
+
+html.dark .bg-app-code {
+  background-color: rgb(var(--app-code));
+}
+
+html.dark .text-app-text {
+  color: rgb(var(--app-text));
+}
+
+html.dark .text-app-muted {
+  color: rgb(var(--app-muted));
+}
+
+html.dark .text-app-strong {
+  color: rgb(var(--app-strong));
+}
+
+html.dark .border-app-border {
+  border-color: rgb(var(--app-border));
+}
+
+html.dark .border-app-stack {
+  border-color: rgb(var(--app-stack));
+}
+
+html.dark .border-app-active {
+  border-color: rgb(var(--app-active));
+}
+
+html.dark .border-app-micro {
+  border-color: rgb(var(--app-micro));
+}
+
+html.dark .border-app-macro {
+  border-color: rgb(var(--app-macro));
+}
+
+html.dark .border-app-heap {
+  border-color: rgb(var(--app-heap));
+}
+
+html.dark .bg-app-stack {
+  background-color: rgb(var(--app-stack));
+}
+
+html.dark .bg-app-active {
+  background-color: rgb(var(--app-active));
+}
+
+html.dark .bg-app-micro {
+  background-color: rgb(var(--app-micro));
+}
+
+html.dark .bg-app-macro {
+  background-color: rgb(var(--app-macro));
+}
+
+html.dark .bg-app-heap {
+  background-color: rgb(var(--app-heap));
+}
+
+html.dark .bg-app-bg\/92 {
+  background-color: rgba(var(--app-bg), 0.92) !important;
+}
+
+html.dark .bg-app-bg\/45 {
+  background-color: rgba(var(--app-bg), 0.45) !important;
+}
+
+html.dark .bg-app-bg\/35 {
+  background-color: rgba(var(--app-bg), 0.35) !important;
+}
+
+html.dark .bg-app-bg\/55 {
+  background-color: rgba(var(--app-bg), 0.55) !important;
+}
+
+html.dark .bg-app-panel\/95 {
+  background-color: rgba(var(--app-panel), 0.95) !important;
+}
+
+html.dark .bg-app-active\/12 {
+  background-color: rgba(var(--app-active), 0.12) !important;
+}
+
+html.dark .bg-app-active\/15 {
+  background-color: rgba(var(--app-active), 0.15) !important;
+}
+
+html.dark .bg-app-active\/10 {
+  background-color: rgba(var(--app-active), 0.10) !important;
+}
+
+html.dark .bg-app-stack\/10 {
+  background-color: rgba(var(--app-stack), 0.10) !important;
+}
+
+html.dark .bg-app-stack\/20 {
+  background-color: rgba(var(--app-stack), 0.20) !important;
+}
+
+html.dark .bg-app-stack\/40 {
+  background-color: rgba(var(--app-stack), 0.40) !important;
+}
+
+html.dark .border-app-border\/70 {
+  border-color: rgba(var(--app-border), 0.70) !important;
+}
+
+html.dark .border-app-stack\/40 {
+  border-color: rgba(var(--app-stack), 0.40) !important;
+}
+
+html.dark .border-app-micro\/50 {
+  border-color: rgba(var(--app-micro), 0.50) !important;
+}
+
+html.dark .border-app-macro\/45 {
+  border-color: rgba(var(--app-macro), 0.45) !important;
+}
+
+html.dark .border-app-macro\/40 {
+  border-color: rgba(var(--app-macro), 0.40) !important;
+}
+
+html.dark .border-app-active\/50 {
+  border-color: rgba(var(--app-active), 0.50) !important;
+}
+
+html.dark .border-app-active\/60 {
+  border-color: rgba(var(--app-active), 0.60) !important;
+}
+
+html.dark .scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(var(--app-muted), 0.75);
+}
